@@ -1,0 +1,17 @@
+ Calculate annual growth rates
+growth_rates = df.pct_change().dropna() * 100
+
+ Print the growth rates
+print(growth_rates)
+
+ Plot the annual growth rates
+plt.figure(figsize=(10, 6))
+for state in growth_rates.columns:
+    plt.plot(growth_rates.index, growth_rates[state], marker='o', label=state)
+
+plt.title('Annual GDP Growth Rates of Top-Performing States Over the Past Decade')
+plt.xlabel('Year')
+plt.ylabel('Growth Rate (%)')
+plt.legend(title='State')
+plt.grid(True)
+plt.show()
