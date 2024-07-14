@@ -1,0 +1,14 @@
+ Set the 'Year' column as the index
+df.set_index('Year', inplace=True)
+
+Plot the GDP trends
+plt.figure(figsize=(10, 6))
+for state in df.columns:
+    plt.plot(df.index, df[state], marker='o', label=state)
+
+plt.title('GDP Trends of Top-Performing States Over the Past Decade')
+plt.xlabel('Year')
+plt.ylabel('GDP (in billions)')
+plt.legend(title='State')
+plt.grid(True)
+plt.show()
